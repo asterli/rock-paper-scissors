@@ -4,10 +4,17 @@ function getComputerChoice (){
     const rock = "rock";
     const paper = "paper";
     const scissors = "scissors";
-    //randomly generate # 1-3
-    //switch case (num)
-    //case 1: rock, etc...
-    //returns rock, paper, or scissors
+    var randomNum = Math.floor(Math.random() * 3) + 1; //chooses a random number from 1-3
+    switch (randomNum){
+        case 1:
+            return rock;
+        case 2:
+            return paper;
+        case 3:
+            return scissors;
+        default:
+            return null;
+    }
 }
 
 function getPlayerChoice(){
