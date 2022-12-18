@@ -37,7 +37,7 @@ function gameRound(computerSelection, playerSelection){
     }
 }
 
-game(){ //main function
+function game(){ //main function
     for (var i = 0; i < 5; i++){
         gameRound(getComputerChoice(), getPlayerChoice());
     }
