@@ -36,3 +36,9 @@ function gameRound(computerSelection, playerSelection){
         console.log(`You Win! The computer chose: ${computerSelection}, which loses again ${playerSelection}.`);
     }
 }
+
+game(){ //main function
+    for (var i = 0; i < 5; i++){
+        gameRound(getComputerChoice(), getPlayerChoice());
+    }
+}
