@@ -1,3 +1,8 @@
+//Global Variables
+var winCount = 0;
+var loseCount = 0;
+var tieCount = 0;
+
 //Functions
 
 function getComputerChoice (){
@@ -20,19 +25,27 @@ function getComputerChoice (){
 function getPlayerChoice(){
     var choice = prompt("Rock, paper, scissors, shoot:");
     var lowercase = choice.toLowerCase(); //ensures that the user input does not need to be case-sensitive
+    if (lowercase != "rock" && lowercase != "paper" && lowercase != "scissors"){
+        lowercase = getPlayerChoice();
+    }
     return lowercase;
 }
 
 function gameRound(computerSelection, playerSelection){
     if (computerSelection == 'rock' && playerSelection == 'scissors'){
+        loseCount++;
         console.log(`You Lose! The computer chose: ${computerSelection}, which beats ${playerSelection}. Try again!`);
-    } else if (computerSelection == 'scissors' && playerSelectionLower == 'paper'){
+    } else if (computerSelection == 'scissors' && playerSelection == 'paper'){
+        loseCount++;
         console.log(`You Lose! The computer chose: ${computerSelection}, which beats ${playerSelection}. Try again!`);
     } else if (computerSelection == 'paper' && playerSelection == 'rock'){
+        loseCount++;
         console.log(`You Lose! The computer chose: ${computerSelection}, which beats ${playerSelection}. Try again!`);
     } else if (computerSelection === playerSelection){
+        tieCount++;
         console.log(`You Tied! The computer chose: ${computerSelection}. You chose: ${playerSelection}. Try again.`);
     } else {
+        winCount++;
         console.log(`You Win! The computer chose: ${computerSelection}, which loses again ${playerSelection}.`);
     }
 }
@@ -41,4 +54,13 @@ function game(){ //main function
     for (var i = 0; i < 5; i++){
         gameRound(getComputerChoice(), getPlayerChoice());
     }
+    console.log(`
+Game over!
+You won ${winCount} times.
+You lost ${loseCount} times.
+You tied ${tieCount} times.
+Thank you for playing. Refresh the page to play again!`
+    );
 }
+
+game();
